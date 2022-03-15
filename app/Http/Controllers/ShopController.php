@@ -15,7 +15,7 @@ class ShopController extends Controller
     public function index()
     {
         //
-        $items = Shop::all();
+        $items = Shop::with('area')->with('category_shop')->get();
         return response()->json([
             'data' => $items
         ], 200);
@@ -41,7 +41,7 @@ class ShopController extends Controller
     public function show(Shop $shop)
     {
         //
-        $item = Shop::where('id', $shop->id)->get();
+        $item = Shop::with('area')->with('category_shop')->where('id', $shop->id)->get();
         if($item) {
             return response()->json([
                 'data' => $item
