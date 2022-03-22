@@ -9,11 +9,11 @@ class Shop extends Model
 {
     use HasFactory;
 
-    // shopテーブルがもつarea_idからareaテーブルのレコードを取得
+    // shopテーブルがもつarea_idからareasテーブルのレコードを1件取得
     public function area(){
-        return $this->belongsTo('App\Models\Area');
+        return $this->belongsTo(Area::class);
     }
-    
+
     //中間テーブルcategory_shop経由でcategoryを取得
     public function category_shop(){
         return $this->belongsToMany(Category::class);

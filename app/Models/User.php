@@ -55,5 +55,14 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    //中間テーブルreservations経由で予約データを取得
+    public function reservations(){
+        // return $this->belongsToMany(Reservation::class)->withPivot('number_of_people', 'reservation_date');
+
+        // 上記では上手く動作しないので下記の記述をしています
+        return $this->belongsToMany(Shop::class, 'reservations', 'user_id', 'shop_id')->withPivot('number_of_people', 'reservation_date');
+    }
+
     // 追加終わり
 }

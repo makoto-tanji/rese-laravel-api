@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('shop_id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedTinyInteger('number_of_people');
-            $table->date('reservation_date');
+            $table->dateTime('reservation_date');
             $table->timestamps();
         });
     }

@@ -41,7 +41,19 @@ class AuthController extends Controller
 
     public function me()
     {
-        return response()->json(auth()->user());
+        // JWTをpublish時に作成されたため残してあります
+        // return response()->json(
+        //     auth()->user()
+        // );
+
+        // TODO
+        // http://127.0.0.1:8000/api/auth/userから
+        // 中間テーブルの情報を含んだUser情報を取得したい
+        // $user = auth()->user()->with('reservations')->get();
+
+        $userId = auth()->user()->id;
+        $user = User::with('reservations')->find($userId);
+        return $user;
     }
 
     public function logout()

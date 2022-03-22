@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // 以下追加
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,9 @@ Route::group([
     Route::get('user', [AuthController::class, 'me']);
 });
 
-Route::apiResource('/shop', ShopController::class);
+Route::apiResource('/shop', ShopController::class)->only([
+    'index', 'show'
+])->withoutMiddleware(['auth:api']);
+Route::apiResource('/reservation', ReservationController::class)->only([
+    'index', 'store'
+])->withoutMiddleware(['auth:api']);

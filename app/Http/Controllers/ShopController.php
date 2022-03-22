@@ -27,6 +27,9 @@ class ShopController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    // TODO
+    // 店舗管理者権限で使用予定
     public function store(Request $request)
     {
         //
@@ -60,6 +63,9 @@ class ShopController extends Controller
      * @param  \App\Models\Shop  $shop
      * @return \Illuminate\Http\Response
      */
+
+    // TODO
+    // 店舗管理者権限で使用予定
     public function update(Request $request, Shop $shop)
     {
         //
@@ -71,6 +77,9 @@ class ShopController extends Controller
      * @param  \App\Models\Shop  $shop
      * @return \Illuminate\Http\Response
      */
+
+    // TODO
+    // 店舗管理者権限で使用予定
     public function destroy(Shop $shop)
     {
         //
