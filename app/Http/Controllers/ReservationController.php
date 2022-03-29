@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+// 以下追加
+use App\Http\Requests\ReservationRequest;
 
 class ReservationController extends Controller
 {
@@ -26,7 +28,7 @@ class ReservationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ReservationRequest $request)
     {
         //
         $item = Reservation::create($request->all());
