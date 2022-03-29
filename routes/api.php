@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\Favorite2Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,11 +34,16 @@ Route::group([
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::get('user', [AuthController::class, 'me']);
+
+    // 以下追加
+    Route::apiResource('/reservation', ReservationController::class)->only([
+    'index', 'store', 'destroy'
+]);
+    Route::post('favorite', [FavoriteController::class, 'store']);
+    Route::post('favorite/destroy', [FavoriteController::class, 'destroy']);
 });
 
 Route::apiResource('/shop', ShopController::class)->only([
     'index', 'show'
 ])->withoutMiddleware(['auth:api']);
-Route::apiResource('/reservation', ReservationController::class)->only([
-    'index', 'store'
-])->withoutMiddleware(['auth:api']);
+

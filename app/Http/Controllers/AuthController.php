@@ -52,7 +52,7 @@ class AuthController extends Controller
         // $user = auth()->user()->with('reservations')->get();
 
         $userId = auth()->user()->id;
-        $user = User::with('reservations')->find($userId);
+        $user = User::with('reservations')->with('favorites')->find($userId);
         return $user;
     }
 
