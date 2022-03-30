@@ -14,11 +14,8 @@ class RegisterRequest extends FormRequest
     public function authorize()
     {
         // return false;
-        if ($this->path() == '/regiser') {
-            return true;
-        } else {
-            return false;
-        }
+
+        return $this->path() === 'api/auth/register' ;
     }
 
     /**
