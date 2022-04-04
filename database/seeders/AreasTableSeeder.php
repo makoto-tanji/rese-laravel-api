@@ -174,7 +174,7 @@ class AreasTableSeeder extends Seeder
         ];
         DB::table('areas')->insert($param);
         $param = [
-            'area_name' => '静岡県',
+            'area_name' => '福岡県',
         ];
         DB::table('areas')->insert($param);
         $param = [
