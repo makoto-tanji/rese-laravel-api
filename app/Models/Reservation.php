@@ -15,4 +15,14 @@ class Reservation extends Model
         'number_of_people',
         'reservation_date'
     ];
+
+    public function shop()
+    {
+        return $this->belongsTo(Shop::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

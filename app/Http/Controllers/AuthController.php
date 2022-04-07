@@ -47,13 +47,8 @@ class AuthController extends Controller
         //     auth()->user()
         // );
 
-        // TODO
-        // http://127.0.0.1:8000/api/auth/userから
-        // 中間テーブルの情報を含んだUser情報を取得したい
-        // $user = auth()->user()->with('reservations')->get();
-
         $userId = auth()->user()->id;
-        $user = User::with('reservations')->with('favorites')->find($userId);
+        $user = User::with(['reservations.area', 'reservations.category_shop'])->with(['favorites'])->find($userId);
         return $user;
     }
 

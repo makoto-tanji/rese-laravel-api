@@ -16,6 +16,8 @@ class ShopController extends Controller
     {
         //
         $items = Shop::with('area')->with('category_shop')->get();
+        // $items = Shop::with('area.category_shop')->get();
+        // エラー 500
         return response()->json([
             'data' => $items
         ], 200);
