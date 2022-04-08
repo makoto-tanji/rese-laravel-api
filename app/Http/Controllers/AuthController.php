@@ -48,7 +48,7 @@ class AuthController extends Controller
         // );
 
         $userId = auth()->user()->id;
-        $user = User::with(['reservations.area', 'reservations.category_shop'])->with(['favorites'])->find($userId);
+        $user = User::with(['reservations.area', 'reservations.category_shop'])->with(['favorites.area', 'favorites.category_shop'])->find($userId);
         return $user;
     }
 
