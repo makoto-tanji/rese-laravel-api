@@ -24,20 +24,6 @@ class ShopController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
-    // TODO
-    // 店舗管理者権限で使用予定
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Models\Shop  $shop
@@ -56,34 +42,5 @@ class ShopController extends Controller
                 'message' => 'Not found',
             ], 404);
         }
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Shop  $shop
-     * @return \Illuminate\Http\Response
-     */
-
-    // TODO
-    // 店舗管理者権限で使用予定
-    public function update(Request $request, Shop $shop)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Shop  $shop
-     * @return \Illuminate\Http\Response
-     */
-
-    // TODO
-    // 店舗管理者権限で使用予定
-    public function destroy(Shop $shop)
-    {
-        //
     }
 }

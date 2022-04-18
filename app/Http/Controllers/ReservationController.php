@@ -9,18 +9,6 @@ use App\Http\Requests\ReservationRequest;
 
 class ReservationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    // TODO
-    // マイページで使用予定
-    public function index()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -38,17 +26,6 @@ class ReservationController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Reservation $reservation)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -58,6 +35,20 @@ class ReservationController extends Controller
     public function update(Request $request, Reservation $reservation)
     {
         //
+        $update = [
+            'number_of_people' => $request->number_of_people,
+            'reservation_date' => $request->reservation_date
+        ];
+        $item = Reservation::where('id', $reservation->id)->update($update);
+        if($item) {
+            return response()->json([
+                'message' => 'Updated successfully',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Not found',
+            ], 404);
+        }
     }
 
     /**
