@@ -40,6 +40,7 @@ class RegisterRequest extends ApiRequest
             'name.required' => 'お名前を入力してください',
             'name.unique' => 'そのユーザー名はすでに使用されています',
             'email.required' => 'メールアドレスを入力してください',
+            'email.email' => 'メールアドレス形式で入力してください',
             'email.unique' => 'そのメールアドレスはすでに使用されています',
             'password.required' => 'パスワードを入力してください',
         ];

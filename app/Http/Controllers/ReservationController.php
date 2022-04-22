@@ -6,6 +6,7 @@ use App\Models\Reservation;
 use Illuminate\Http\Request;
 // 以下追加
 use App\Http\Requests\ReservationRequest;
+use App\Http\Requests\ReservationUpdateRequest;
 
 class ReservationController extends Controller
 {
@@ -32,7 +33,7 @@ class ReservationController extends Controller
      * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reservation $reservation)
+    public function update(ReservationUpdateRequest $request, Reservation $reservation)
     {
         //
         $update = [
