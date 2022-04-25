@@ -28,9 +28,9 @@ class RegisterRequest extends ApiRequest
     {
         return [
             // 以下追加
-            'name' => 'required | unique:users,name',
-            'email' => 'required | email |unique:users,email',
-            'password' => 'required'
+            'name' => 'required|unique:users,name|max:191',
+            'email' => 'required|regex:/^[\w\-._]+@[\w\-._]+\.[A-Za-z]+$/|unique:users,email|max:191',
+            'password' => 'required|max:191'
         ];
     }
     // messages()追加
@@ -39,10 +39,13 @@ class RegisterRequest extends ApiRequest
         return [
             'name.required' => 'お名前を入力してください',
             'name.unique' => 'そのユーザー名はすでに使用されています',
+            'name.max' => 'お名前は191文字以内で入力してください',
             'email.required' => 'メールアドレスを入力してください',
-            'email.email' => 'メールアドレス形式で入力してください',
+            'email.regex' => 'メールアドレス形式で入力してください',
             'email.unique' => 'そのメールアドレスはすでに使用されています',
+            'email.max' => 'メールアドレスは191文字以内で入力してください',
             'password.required' => 'パスワードを入力してください',
+            'password.max' => 'パスワードは191文字以内で入力してください',
         ];
     }
 }

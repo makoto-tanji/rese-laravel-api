@@ -26,7 +26,7 @@ class ReservationUpdateRequest extends ApiRequest
         return [
             // 以下追加
             'number_of_people' => 'required',
-            'reservation_date' => 'required | date | after:now + 1hours'
+            'reservation_date' => 'required|date_format:Y-m-d H:i|after:now + 1hours'
         ];
     }
     // messages()追加
@@ -35,7 +35,7 @@ class ReservationUpdateRequest extends ApiRequest
         return [
             'number_of_people.required' => '人数を選択してください',
             'reservation_date.required' => '日時を選択してください',
-            'reservation_date.date' => '日時を選択してください',
+            'reservation_date.date_format' => '日時を選択してください',
             'reservation_date.after' => '現時刻から1時間後よりお選びください',
         ];
     }
